@@ -7,7 +7,7 @@ class Routes {
                 route: "/alunos/",
                 action: (request, response) => {
                     var controller = require('./controllers/AlunoController');
-                    new controller(request, response).index(request, response)
+                    new controller(request, response).index()
                 }
             }
         ];

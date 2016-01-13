@@ -4,8 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "tsc src/*.ts --module commonjs --target es5 --outDir lib; tsc src/*/*.ts --module commonjs --target es5 --outDir lib; node lib/startup.js"
   },
+  
   "author": "",
   "license": "ISC"
 }

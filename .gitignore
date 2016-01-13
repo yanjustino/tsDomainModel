@@ -1,1 +1,4 @@
 lib/
+
+#extensions
+*.log

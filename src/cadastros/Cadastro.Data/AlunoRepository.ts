@@ -10,6 +10,11 @@ class AlunoRepository implements AlunoRepositoryContract {
     }
 
     public getAll(): Array<Aluno> {
+        this.create(new Aluno("Pedro", 21));
+        this.create(new Aluno("Maria", 25));
+        this.create(new Aluno("João", 31));
+        this.create(new Aluno("Ana", 41));
+        
         return this.alunos;
     }
 }

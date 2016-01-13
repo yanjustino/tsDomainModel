@@ -1,8 +1,16 @@
-import aluno = require('../../Domain/Alunos/Aluno')
+import Aluno = require('../../Domain/Alunos/Aluno')
 
 interface AlunoRepositoryContract {
-    create(model: aluno): void;
-    getAll(): Array<aluno>;
+    /** 
+     * Create a new Aluno
+     * @param {Aluno} model - represents a model Aluno
+     */
+    create(model: Aluno): void;
+    
+    /** 
+     * Get All Aluno Records
+    */
+    getAll(): Array<Aluno>;
 }
 
 export = AlunoRepositoryContract

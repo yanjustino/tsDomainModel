@@ -1,5 +1,5 @@
 class Aluno {
-    constructor(public name: string, public age: number, document: string) { }
+    constructor(public name: string, public age: number, document?: string) { }
 
     public IsValid(): boolean {
         return true;

@@ -1,23 +1,37 @@
-import aluno = require('../../Domain/Alunos/Aluno')
-
+import Aluno = require('../../Domain/Alunos/Aluno')
 import AlunoRepository = require('./AlunoRepositoryContract')
 
+/** Class representing a Aluno Services. */
 class AlunoService {
-    private alunoRepository: AlunoRepository;
+    private repository: AlunoRepository;
 
+    /**
+     * @constructor
+     * @param {AlunoRepositoryContract} alunoRepository - Inject a concret 
+     * alunoRepository Instance
+     */
     constructor(alunoRepository: AlunoRepository) {
-        this.alunoRepository = alunoRepository
+        this.repository = alunoRepository
     }
 
-    public NovoAluno(nome: string, idade: number): void {
-        this.alunoRepository.create(new aluno(nome, idade, "document"));
+    /**
+     * Create New Aluno
+     * @param {string} name - Aluno name
+     * @param {number} age - Aluno age 
+     */
+    public Register(name: string, age: number): void {
+        let aluno = new Aluno(name, age, "default");
+
+        if (!aluno.OfAge()) {
+            this.repository.create(aluno);
+        }
     }
 
-    public RecupararTodos(): aluno[] {
-        this.NovoAluno("Yan", 36);
-        this.NovoAluno("Andreia", 38);
-        
-        return this.alunoRepository.getAll();
+    /**
+     * Get all Aluno Records
+     */
+    public GetAll(): Array<Aluno> {
+        return this.repository.getAll();
     }
 }
 

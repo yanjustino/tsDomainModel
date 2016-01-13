@@ -1,20 +1,23 @@
 import aluno = require('../../Domain/Alunos/Aluno')
 
-import alunoRepository = require('./IAlunoRepository')
+import AlunoRepository = require('./AlunoRepositoryContract')
 
 class AlunoService {
-    private _alunoRepository: alunoRepository;
+    private alunoRepository: AlunoRepository;
 
-    constructor(alunoRepository: alunoRepository) {
-        this._alunoRepository = alunoRepository
+    constructor(alunoRepository: AlunoRepository) {
+        this.alunoRepository = alunoRepository
     }
 
     public NovoAluno(nome: string, idade: number): void {
-        this._alunoRepository.create(new aluno(nome, idade, "document"));
+        this.alunoRepository.create(new aluno(nome, idade, "document"));
     }
 
     public RecupararTodos(): aluno[] {
-        return this._alunoRepository.getAll();
+        this.NovoAluno("Yan", 36);
+        this.NovoAluno("Andreia", 38);
+        
+        return this.alunoRepository.getAll();
     }
 }
 

@@ -7,9 +7,6 @@ class AlunoController extends Controller {
     private service = new AlunoService(new AlunoRepository())
 
     public index(): void {
-        this.service.NovoAluno("Yan", 36);
-        this.service.NovoAluno("Andreia", 38);
-        
         this.JsonResult(this.service.RecupararTodos());
     }
 }

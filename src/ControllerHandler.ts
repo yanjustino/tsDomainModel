@@ -14,13 +14,13 @@ class ControllerHandler {
     }
 
     private static FindController(routes: any, path: string): any {
-        var controller = null;
+        var controller = undefined;
 
         routes.forEach((route) => {
             if (route.route == path) controller = route;
         });
 
-        return controller == null ? this.ContentNotFoundMessage() : controller;
+        return controller == undefined ? this.ContentNotFoundMessage() : controller;
     }
 
     private static ContentNotFoundMessage(): any {

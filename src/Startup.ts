@@ -1,4 +1,4 @@
-/// <reference path="_all" />
+/// <reference path="_all.ts" />
 
 import routes = require('./Routes');
 
@@ -7,7 +7,7 @@ const hostname = '127.0.0.1';
 const port = 1337;
 
 var server = http.createServer((request, response) => {
-    routes.Redirect(request, response);
+  routes.Redirect(request, response);
 })
 
 server.listen(port, hostname, () => {

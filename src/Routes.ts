@@ -5,12 +5,19 @@ namespace DomainModelTs.Application {
         public static Redirect(request: any, response: any): void {
             var routes = [
                 {
-                    route: "/alunos/",
+                    route: "/membros/alunos",
                     action: (request, response) => {
-                        var controller = require('./controllers/AlunoController');
-                        new controller(request, response).index()
+                        var controller = require('./controllers/MembrosController');
+                        new controller(request, response).GetAlunos()
                     }
-                }
+                },
+                {
+                    route: "/membros/professores",
+                    action: (request, response) => {
+                        var controller = require('./controllers/MembrosController');
+                        new controller(request, response).GetProfessores()
+                    }
+                }                
             ];
 
             ControllerHandler.Redirect(routes, request, response);

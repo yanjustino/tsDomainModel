@@ -25,8 +25,7 @@ namespace DomainModelTs.Application {
         }
 
         private static ContentNotFoundMessage(): any {
-            return
-            {
+            return {
                 action: (request, response) => {
                     response.writeHead(404, { 'Content-Type': 'text/plain' });
                     response.end('Not Found');
@@ -35,7 +34,10 @@ namespace DomainModelTs.Application {
         }
 
         private static InternalErrorServerMessage(error, response) {
-            response.writeHead(404, { 'Content-Type': 'text/plain' });
+            response.writeHead(404, 
+            { 
+                'Content-Type': 'text/plain' 
+            });
             response.end('Not Found');
         }
     }
